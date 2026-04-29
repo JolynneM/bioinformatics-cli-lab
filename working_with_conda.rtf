@@ -1,0 +1,100 @@
+{\rtf1\ansi\ansicpg1252\cocoartf2869
+\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\fswiss\fcharset0 Helvetica-Bold;\f1\fswiss\fcharset0 Helvetica;\f2\fnil\fcharset0 HelveticaNeue-Bold;
+\f3\fnil\fcharset0 HelveticaNeue;}
+{\colortbl;\red255\green255\blue255;}
+{\*\expandedcolortbl;;}
+\paperw11900\paperh16840\margl1440\margr1440\vieww16220\viewh17060\viewkind0
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f0\b\fs24 \cf0 \ul \ulc0 CONDA
+\f1\b0 \ulnone \
+\
+1. Check if Conda exits (if it doesn\'92t, go to step 2. If it does, go to step 3)\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f0\b \cf0 \AppleHighlight-1 \AppleHilightClrSch-5 conda --version
+\f1\b0 \AppleHighlight0 \AppleHilightClrSch0 \
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+\cf0 \
+2. Install Miniconda\
+\
+Download Miniconda installer (Linux version)\
+
+\f0\b \AppleHighlight-1 \AppleHilightClrSch-5 wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh
+\f1\b0 \AppleHighlight0 \AppleHilightClrSch0 \
+\
+Run the installer\
+
+\f0\b \AppleHighlight-1 \AppleHilightClrSch-5 bash Miniconda3-latest-Linux-x86_64.sh
+\f1\b0 \AppleHighlight0 \AppleHilightClrSch0 \
+\
+3. Initialise Conda in the shell\
+Set up Conda so "conda activate" works in terminal\
+
+\f0\b \AppleHighlight-1 \AppleHilightClrSch-5 conda init
+\f1\b0 \AppleHighlight0 \AppleHilightClrSch0 \
+\
+Reload shell configuration so changes take effect immediately\
+
+\f0\b \AppleHighlight-1 \AppleHilightClrSch-5 source ~/.bashrc
+\f1\b0 \AppleHighlight0 \AppleHilightClrSch0 \
+\
+4. Configure Conda channels\
+Add main community channel (scientific computing packages)\
+
+\f0\b \AppleHighlight-1 \AppleHilightClrSch-5 conda config --add channels conda-forge
+\f1\b0 \AppleHighlight0 \AppleHilightClrSch0 \
+\
+Add bioinformatics-specific channel (FastQC, samtools, etc.)\
+
+\f0\b \AppleHighlight-1 \AppleHilightClrSch-5 conda config --add channels bioconda
+\f1\b0 \AppleHighlight0 \AppleHilightClrSch0 \
+\
+Ensure Conda prioritises channels strictly (prevents conflicts)\
+
+\f0\b \AppleHighlight-1 \AppleHilightClrSch-5 conda config --set channel_priority strict
+\f1\b0 \AppleHighlight0 \AppleHilightClrSch0 \
+\
+5. Create and activate environment\
+Create a clean isolated environment for bioinformatics\
+
+\f0\b \AppleHighlight-1 \AppleHilightClrSch-5 conda create -n bioinfo python=3.10 -y
+\f1\b0 \AppleHighlight0 \AppleHilightClrSch0 \
+\
+Activate the environment (switch into it)\
+
+\f0\b \AppleHighlight-1 \AppleHilightClrSch-5 conda activate bioinfo
+\f1\b0 \AppleHighlight0 \AppleHilightClrSch0 \
+\
+6. Install FastQC tool\
+Install FastQC (quality control tool for sequencing data)\
+
+\f0\b \AppleHighlight-1 \AppleHilightClrSch-5 conda install fastqc -y
+\f1\b0 \AppleHighlight0 \AppleHilightClrSch0 \
+\
+7. Download example sequencing data (ENA/SRA)\
+Download paired-end FASTQ file (read 1)\
+
+\f0\b \AppleHighlight-1 \AppleHilightClrSch-5 wget ftp://ftp.sra.ebi.ac.uk/vol1/fastq/SRR116/091/SRR11669591/SRR11669591_1.fastq.gz
+\f1\b0 \AppleHighlight0 \AppleHilightClrSch0 \
+\
+Download paired-end FASTQ file (read 2)\
+
+\f0\b \AppleHighlight-1 \AppleHilightClrSch-5 wget ftp://ftp.sra.ebi.ac.uk/vol1/fastq/SRR116/091/SRR11669591/SRR11669591_2.fastq.gz
+\f1\b0 \AppleHighlight0 \AppleHilightClrSch0 \
+\
+8. Run FastQC\
+
+\f0\b \AppleHighlight-1 \AppleHilightClrSch-5 fastqc SRR11669591_1.fastq.gz SRR11669591_2.fastq.gz
+\f1\b0 \AppleHighlight0 \AppleHilightClrSch0 \
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+\cf0 9. Check what environment exists and tools\
+\pard\pardeftab560\slleading20\partightenfactor0
+
+\f2\b\fs26 \cf0 \AppleHighlight-1 \AppleHilightClrSch-5 conda env list
+\f3\b0 \AppleHighlight0 \AppleHilightClrSch0 \
+\
+\pard\pardeftab560\slleading20\partightenfactor0
+
+\f2\b \cf0 \AppleHighlight-1 \AppleHilightClrSch-5 conda list}
