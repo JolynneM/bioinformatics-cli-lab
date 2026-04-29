@@ -1,0 +1,63 @@
+CONDA
+
+1. Check if Conda exits (if it doesn’t, go to step 2. If it does, go to step 3)
+conda --version
+
+2. Install Miniconda
+
+Download Miniconda installer (Linux version)
+wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh
+
+Run the installer
+bash Miniconda3-latest-Linux-x86_64.sh
+
+3. Configure Conda channels
+Add main community channel (scientific computing packages)
+conda config --add channels conda-forge
+
+Add bioinformatics-specific channel (FastQC, samtools, etc.)
+conda config --add channels bioconda
+
+Ensure Conda prioritises channels strictly (prevents conflicts)
+conda config --set channel_priority strict
+
+4. Create a clean isolated environment for bioinformatics
+conda create -n vibrio python=3.10 -y
+
+5. Initialise Conda in the shell
+Set up Conda so "conda activate" works in terminal
+conda init
+
+6. Reload shell configuration so changes take effect immediately
+source ~/.bashrc
+
+7. Activate the environment (switch into it)
+conda activate vibrio
+
+8. Install tools
+Install FastQC (quality control tool for sequencing data)
+conda install fastqc -y
+conda install trimmomatic -y 
+conda install multiqc -y
+conda install bwa -y
+conda install samtools -y
+conda install snippy -y
+conda install iqtree -y 
+conda install unicycler -y
+
+9. Check what environment exists and tools
+conda env list
+conda list
+
+10. Export environment  
+conda env export > vibrio_environment.yml
+
+11. Add to GitHub repo
+git init
+git add vibrio_environment.yml
+git commit -m "add vibrio cholera analysis environment"
+git remote add origin https://github.com/JolynneM/bioinformatics-cli-lab.git
+git branch -M main
+git push -u origin main
+
+
