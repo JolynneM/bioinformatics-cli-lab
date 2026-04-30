@@ -1,0 +1,27 @@
+You are a bioinformatician working on Vibrio cholerae genomics data. Your task is to organise sequencing data and associated metadata using the command line. Please execute the instructions below:
+
+1. Create a project folder called vibrio and move into it
+
+2. Download the paired-end FASTQ files using the links below:
+ftp.sra.ebi.ac.uk/vol1/fastq/SRR116/091/SRR11669591/SRR11669591_1.fastq.gz
+ftp.sra.ebi.ac.uk/vol1/fastq/SRR116/091/SRR11669591/SRR11669591_2.fastq.gz
+
+3. Check that the file is downloaded
+
+4. Create a CSV file called metadata.csv. 
+a. This file should have the following column title: 
+sample_id
+country
+age
+sex
+sample_type
+clinical_status
+b. Under the columns, add the data below from two sources with the following information
+sample1: CountryX,11,F,stool,symptomatic
+sample2: CountryY,40,M,stool,asymptomatic
+
+5. Create a folder for metadata
+
+6. Make a copy of the metadata file and move it into the folder
+
+7. Check folder structure
